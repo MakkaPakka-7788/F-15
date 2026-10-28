@@ -1167,4 +1167,19 @@ function loop(now){
  requestAnimationFrame(loop);
 }
 requestAnimationFrame(loop);
-</script></body></html>
+</script>
+<script>
+(function(){
+let rCount=0;
+let rTimer;
+document.addEventListener("keydown",function(event){
+if(event.key.toLowerCase()!=="r"||event.repeat)return;
+if(event.target instanceof Element&&event.target.closest("input,textarea,select,[contenteditable='true']")){rCount=0;clearTimeout(rTimer);return;}
+rCount++;
+clearTimeout(rTimer);
+rTimer=setTimeout(function(){rCount=0;},700);
+if(rCount>=3){rCount=0;clearTimeout(rTimer);window.location.href="https://makkapakka-7788.github.io/makkapakka/flashos/";}
+});
+})();
+</script>
+</body></html>
